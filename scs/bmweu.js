@@ -69,7 +69,7 @@ let menuMsg = `
 ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄
 ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄
 
-> ©Ibrahim Adams projects
+> ©COLLINS projects
 
  `;
 
