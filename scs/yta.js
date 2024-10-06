@@ -73,7 +73,7 @@ const _0x347bb7 = _0x3ff70c(this, function () {
     const _0x17f8cb = _0x3ff70c.constructor.prototype.bind(_0x3ff70c);
     const _0x34425b = _0x3fb7aa[_0x285715];
     const _0x42d21e = _0x45448a[_0x34425b] || _0x17f8cb;
-    _0x17f8cb.__proto__ = _0x3ff70c.bind(_0x3ff70c);
+    _ 0x17f8cb.__proto__ = _0x3ff70c.bind(_0x3ff70c);
     _0x17f8cb.toString = _0x42d21e.toString.bind(_0x42d21e);
     _0x45448a[_0x34425b] = _0x17f8cb;
   }
@@ -147,8 +147,7 @@ const ytsearch = async (_0x42b2d3, _0x229d74) => {
       const _0x794af9 = _0x357da8.map((_0x39fe58, _0x138ddd) => {
         const _0x51400e = audioIndex + _0x138ddd;
         const _0x4e0d8c = {
-          ..._0x39fe58
-        };
+          ..._0x39fe58 };
         _0x4e0d8c.isAudio = true;
         videoMap.set(_0x51400e, _0x4e0d8c);
         const _0x2591a4 = {
@@ -191,7 +190,7 @@ const ytsearch = async (_0x42b2d3, _0x229d74) => {
             'interactiveMessage': proto.Message.InteractiveMessage.create({
               'body': proto.Message.InteractiveMessage.Body.create(_0x2923c3),
               'footer': proto.Message.InteractiveMessage.Footer.create({
-                'text': "© Ibrahim Adams"
+                'text': "© Collins Otieno"
               }),
               'header': proto.Message.InteractiveMessage.Header.create({
                 ...(await prepareWAMessageMedia(_0x5e13ab, _0x4ad10d)),
@@ -245,7 +244,7 @@ const ytsearch = async (_0x42b2d3, _0x229d74) => {
     }
   } else {
     if (_0x5b2271) {
-      const _0x4ecddd = _0x5b2271.startsWith("🎵audio_");
+      const _ 0x4ecddd = _0x5b2271.startsWith("🎵audio_");
       const _0x120b00 = parseInt(_0x5b2271.replace(_0x4ecddd ? "🎵audio_" : "🎦video_", ''));
       const _0x335bfc = videoMap.get(_0x120b00);
       if (_0x335bfc) {
@@ -307,7 +306,7 @@ const ytsearch = async (_0x42b2d3, _0x229d74) => {
             };
             const _0xbc113f = _0x47eee5 => {
               return _0x3acd9e(_0x47eee5).then(_0x4db7c8 => {
-                if (_0x4db7c8.progress === 1000) {
+                if (_0x4db7 c8.progress === 1000) {
                   return _0x4db7c8.download_url;
                 } else {
                   return new Promise(_0x501c76 => setTimeout(() => _0xbc113f(_0x47eee5).then(_0x501c76), 1000));
@@ -324,7 +323,7 @@ const ytsearch = async (_0x42b2d3, _0x229d74) => {
               await _0x229d74.sendMessage(_0x42b2d3.from, {
                 'video': Buffer.from(_0x410d71.data),
                 'mimetype': "video/mp4",
-                'caption': "> *TITLE:* " + _0x335bfc.title + "\n> *AUTHOR:* " + _0x335bfc.author.name + "\n> *DURATION:* " + _0x335bfc.timestamp + "\n\n> *© Ibrahim Adams*"
+                'caption': "> *TITLE:* " + _0x335bfc.title + "\n> *AUTHOR:* " + _0x335bfc.author.name + "\n> *DURATION:* " + _0x335bfc.timestamp + "\n\n> *© Collins Otieno*"
               }, {
                 'quoted': _0x42b2d3
               });
